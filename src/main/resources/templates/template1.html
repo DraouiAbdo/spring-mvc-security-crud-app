@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org"
-                xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+                xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf/extras/spring-security5"
+>
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -26,7 +28,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#">Classes</a>
                     </li>
-                    <li  class="nav-item dropdown">
+                    <li  sec:authorize="hasRole('ADMIN')" class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Manage Students
                         </a>
@@ -42,7 +44,7 @@
                     <li class="nav-item dropdown">
                         <a  class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink2" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 
-                            <span  >name</span>
+                            <span sec:authentication="name" ></span>
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink2">
                             <li><a  class="dropdown-item" th:href="@{/login}">Login</a></li>

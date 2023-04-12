@@ -28,9 +28,9 @@ public class SpringMvcSimpleAppApplication {
             Student s2 = new Student(null,"Omar",new Date(),false,20);
             Student s3 = new Student(null,"Youcef",new Date(),true,80);
 
-            studentService.addNewStudent(s1);
-            studentService.addNewStudent(s2);
-            studentService.addNewStudent(s3);
+//            studentService.addNewStudent(s1);
+//            studentService.addNewStudent(s2);
+//            studentService.addNewStudent(s3);
 
 //            Student s4 = studentService.findStudentByNameContains("ma");
 //            System.out.println(s4.getName()+" rank is "+s4.getRank());

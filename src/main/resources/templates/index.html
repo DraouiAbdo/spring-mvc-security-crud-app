@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
         layout:decorate="template1"
->
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5" >
 <head>
     <meta charset="UTF-8">
     <title>List of students</title>
@@ -38,8 +38,8 @@
                     <th>BirthDate</th>
                     <th>Graduated ? </th>
                     <th>Rank</th>
-                    <th>Action 1</th>
-                    <th>Action 2</th>
+                    <th></th>
+                    <th></th>
                 </tr>
                 </thead>
                 <tbody>
@@ -48,13 +48,13 @@
                     <td th:text="${s.birthDate}"></td>
                     <td th:text="${s.graduated}"></td>
                     <td th:text="${s.rank}"></td>
-                    <td>
+                    <td sec:authorize="hasRole('ADMIN')">
                         <form method="post" th:action="@{/delete}">
                             <input type="hidden" name="id" th:value="${s.Id}">
                             <button type="submit" class="btn btn-danger">delete</button>
                         </form>
                     </td>
-                    <td>
+                    <td sec:authorize="hasRole('ADMIN')">
                         <form method="get" th:action="@{/update}">
                             <input type="hidden" name="id" th:value="${s.Id}">
                             <button type="submit" class="btn btn-success">update</button>
