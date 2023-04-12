@@ -23,7 +23,7 @@ import java.util.List;
 public class StudentController {
     private  IStudentService studentService;
 
-    @GetMapping("/index")
+    @GetMapping("/user/index")
     public String listAllStudent(Model model,
                                  @RequestParam(name="page",defaultValue = "0")int page,
                                  @RequestParam(name="size", defaultValue = "5") int size,
@@ -37,31 +37,31 @@ public class StudentController {
         model.addAttribute("pages",new int[studentsPage.getTotalPages()]);
 
 
-        return "index";
+        return "home";
     }
 
 
-    @PostMapping("/delete")
+    @PostMapping("/admin/delete")
     public String delete(Model model,
                          @RequestParam() Long id){
         studentService.deleteStudentById(id);
-        return "redirect:/index";
+        return "redirect:/user/index";
     }
 
 
-    @GetMapping("/create")
+    @GetMapping("/admin/create")
     public String create(Model model){
         model.addAttribute("student",new Student());
         return "create";
     }
-    @PostMapping(path = "/create")
+    @PostMapping(path = "/admin/create")
     public String create(Model model, @Valid Student student, BindingResult bindingResult){
         if(bindingResult.hasErrors()) return "create";
         studentService.addNewStudent(student);
         return "create";
     }
 
-    @GetMapping("/update")
+    @GetMapping("/admin/update")
     public String update(Model model, @RequestParam(defaultValue = "0") Long id){
 
         Student student  = studentService.findStudentById(id);
@@ -73,15 +73,15 @@ public class StudentController {
     }
 
 
-    @PostMapping(path = "/update")
+    @PostMapping(path = "/admin/update")
     public String update(Model model, @Valid Student student, BindingResult bindingResult){
         if(bindingResult.hasErrors()) return "update";
         studentService.addNewStudent(student);
 
-        return "redirect:/index";
+        return "redirect:/user/index";
     }
 
-    @GetMapping("/students")
+    @GetMapping("/admin/students")
     @ResponseBody
     public List<Student> listAllStudents(){
         return studentService.findAll();
@@ -89,7 +89,8 @@ public class StudentController {
 
     @GetMapping("/")
     public String home(){
-        return "redirect:/index";
+
+        return "home";
     }
 }
 

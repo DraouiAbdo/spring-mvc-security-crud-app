@@ -49,13 +49,13 @@
                     <td th:text="${s.graduated}"></td>
                     <td th:text="${s.rank}"></td>
                     <td sec:authorize="hasRole('ADMIN')">
-                        <form method="post" th:action="@{/delete}">
+                        <form method="post" th:action="@{/admin/delete}">
                             <input type="hidden" name="id" th:value="${s.Id}">
                             <button type="submit" class="btn btn-danger">delete</button>
                         </form>
                     </td>
                     <td sec:authorize="hasRole('ADMIN')">
-                        <form method="get" th:action="@{/update}">
+                        <form method="get" th:action="@{/admin/update}">
                             <input type="hidden" name="id" th:value="${s.Id}">
                             <button type="submit" class="btn btn-success">update</button>
                         </form>

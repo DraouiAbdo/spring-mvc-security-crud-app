@@ -20,7 +20,7 @@
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" th:href="@{index}">Home</a>
+                        <a class="nav-link active" aria-current="page" th:href="@{/user/index}">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Instructors</a>
@@ -33,7 +33,7 @@
                             Manage Students
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <li><a class="dropdown-item"  th:href="@{create}">Add student</a></li>
+                            <li><a class="dropdown-item"  th:href="@{/admin/create}">Add student</a></li>
                             <li><a class="dropdown-item" href="#">Another action</a></li>
                             <li><a class="dropdown-item" href="#">Something else here</a></li>
                         </ul>
