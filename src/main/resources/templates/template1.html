@@ -47,8 +47,8 @@
                             <span sec:authentication="name" ></span>
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink2">
-                            <li><a  class="dropdown-item" th:href="@{/login}">Login</a></li>
-                            <li><a  class="dropdown-item" th:href="@{/logout}" >Logout</a></li>
+                            <li sec:authorize="!isAuthenticated()" ><a  class="dropdown-item" th:href="@{/login}">Login</a></li>
+                            <li sec:authorize="isAuthenticated()" ><a  class="dropdown-item" th:href="@{/logout}" >Logout</a></li>
 
 
                         </ul>
